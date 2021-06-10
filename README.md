@@ -44,6 +44,9 @@ Save working hours by strategically choosing the least crowded time of day.
 
 ### Development method:
 
+- Scrum (sprints)
+- Kanban (big picture)
+
 ##### Web Framework Possibilities:
 
 | Name  | Language   | Pros                                        | Cons                                                      |
