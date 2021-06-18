@@ -2,7 +2,7 @@ backcall==0.2.0
 certifi==2021.5.30
 chardet==4.0.0
 click==8.0.1
-dataclasses==0.8
+dataclasses==0.6
 decorator==5.0.9
 Flask==2.0.1
 idna==2.10
@@ -16,7 +16,6 @@ MarkupSafe==2.0.1
 parso==0.8.2
 pexpect==4.8.0
 pickleshare==0.7.5
-pkg-resources==0.0.0
 prompt-toolkit==3.0.19
 ptyprocess==0.7.0
 Pygments==2.9.0
