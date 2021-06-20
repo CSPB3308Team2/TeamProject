@@ -137,8 +137,8 @@ class ClickEventHandler {
                 },
               },
             };
-            Plotly.newPlot("myDiv", data, layout);
             me.infowindow.open(me.map);
+            Plotly.newPlot("myDiv", data, layout);
           });
       }
     });
