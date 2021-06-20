@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TodoLoco Mapview</title>
+    <script src='https://cdn.plot.ly/plotly-2.0.0.min.js'></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/map.css')}}"
+    />
+    <script src="{{url_for('static', filename='map.js')}}"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img id="place-icon" src="" height="16" width="16" />
+      <span id="place-name" class="title"></span><br />
+      Place ID <span id="place-id"></span><br />
+      <span id="place-address"></span>
+      <div id='myDiv'>
+    </div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaOnDR16ri0o-gF6HiYX5gK_yaO16kCvk&libraries=localContext,places&v=beta&callback=initMap"
+      async
+    ></script>
+  </body>
+</html>
