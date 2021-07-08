@@ -74,9 +74,9 @@ def delete(todo_id):
 # **************END ROUTINES FOR todo LIST***************
 
 
-@app.route("/map")
-def mapview():
-    return render_template('map.html', title='Map')
+# @app.route("/map")
+# def mapview():
+#     return render_template('map.html', title='Map')
 
 
 @app.route('/mapclick')
