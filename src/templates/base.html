@@ -99,12 +99,11 @@
           {{todo.place_address}}
         </p>
 
-        <div id="{{todo.id}}" />
+        {% if todo.traffic_data %}
 
-        {% if todo.traffic_data %} {
+        <div id="{{todo.id}}"></div>
+
         <script>
-
-
           let layout = {
                             autosize: false,
                             width: 500,
@@ -147,7 +146,7 @@
                     name: "BestTime API day_raw",
                   },
                 ];
-                          Plotly.newPlot("{{todo.id}}", data, layout);
+            Plotly.newPlot("{{todo.id}}", data, layout);
         </script>
 
         {% endif %} {% if todo.complete == False %}
