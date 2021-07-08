@@ -102,17 +102,12 @@ class ClickEventHandler {
             me.foorm.children["place-name"].children["in"].value = place.name;
             me.foorm.children["place-address"].children["in"].value =
               place.formatted_address;
-            let data = [
-              {
-                z: myJson.analysis.map((x) => x.day_raw),
-                type: "heatmap",
-                name: "BestTime API day_raw",
-              },
-            ];
-            me.foorm.children["traffic-data"].children["in"].value =
-              JSON.stringify(myJson.analysis.map((x) => x.day_raw));
-            $(".ui.modal").modal("hide");
+            if (myJson.status !== "error") {
+              me.foorm.children["traffic-data"].children["in"].value =
+                JSON.stringify(myJson.analysis.map((x) => x.day_raw));
+            }
           });
+        $(".ui.modal").modal("hide");
       }
     });
   }

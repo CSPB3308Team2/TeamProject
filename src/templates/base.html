@@ -101,54 +101,56 @@
 
         <div id="{{todo.id}}" />
 
+        {% if todo.traffic_data %} {
         <script>
-          var layout = {
-                        autosize: false,
-                        width: 500,
-                        height: 300,
-                        title: {
-                          text: "Foot Traffic Heatmap",
-                          font: {
-                            family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                            size: 24,
-                          },
-                          xref: "paper",
-                          x: 0.05,
-                        },
-                        xaxis: {
-                          title: {
-                            text: "hour",
-                            font: {
-                              family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                              size: 18,
-                              color: "#7f7f7f",
-                            },
-                          },
-                        },
-                        yaxis: {
-                          title: {
-                            text: "day",
-                            font: {
-                              family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                              size: 18,
-                              color: "#7f7f7f",
-                            },
-                          },
-                        },
-                      };
 
-                      var data = [
-              {
-                z: {{todo.traffic_data}},
-                type: "heatmap",
-                name: "BestTime API day_raw",
-              },
-            ];
 
-                      Plotly.newPlot("{{todo.id}}", data, layout);
+          let layout = {
+                            autosize: false,
+                            width: 500,
+                            height: 300,
+                            title: {
+                              text: "Foot Traffic Heatmap",
+                              font: {
+                                family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                                size: 24,
+                              },
+                              xref: "paper",
+                              x: 0.05,
+                            },
+                            xaxis: {
+                              title: {
+                                text: "hour",
+                                font: {
+                                  family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                                  size: 18,
+                                  color: "#7f7f7f",
+                                },
+                              },
+                            },
+                            yaxis: {
+                              title: {
+                                text: "day",
+                                font: {
+                                  family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                                  size: 18,
+                                  color: "#7f7f7f",
+                                },
+                              },
+                            },
+                          };
+
+            let data = [
+                  {
+                    z: {{todo.traffic_data}},
+                    type: "heatmap",
+                    name: "BestTime API day_raw",
+                  },
+                ];
+                          Plotly.newPlot("{{todo.id}}", data, layout);
         </script>
 
-        {% if todo.complete == False %}
+        {% endif %} {% if todo.complete == False %}
         <span class="ui gray label">Not Complete</span>
         {% else %}
         <span class="ui green label">Completed</span>
