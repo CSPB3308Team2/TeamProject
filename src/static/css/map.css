@@ -19,7 +19,14 @@ nav {
   #map {
     height: 100%;
   }
+
+  .ui.modal.active {
+    height: 70%;
+  }
   
+  .ui.modal>.content {
+    height: 100%;
+  }
   /* Optional: Makes the sample page fill the window. */
   html,
   body {

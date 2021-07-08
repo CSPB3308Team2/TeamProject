@@ -1,52 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
     <!-- pulling in both styles for the header -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-      
-</head>
 
-<body>
-    <header>
-        <div class = "container">
-          <h1 class="logo">Todo Page</h1>
-        </div>
-    </header>
-    <div style="margin-top: 50px;" class="ui container">
-        <h1 class="ui center aligned header">Current Todo List</h1>
+    <script src="https://cdn.plot.ly/plotly-2.0.0.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/map.css')}}"
+    />
+    <script src="{{url_for('static', filename='map.js')}}"></script>
+  </head>
 
-        <form class="ui form" action="/add" method="post">
-            <div class="field">
-                <label>Todo Title</label>
-                <input type="text" name="title" placeholder="Enter Todo..."><br>
-            </div>
-            <button class="ui blue button" type="submit">Add</button>
-        </form>
-
-        <hr>
-
-        {% for todo in todo_list %}
-        <div class="ui segment">
-            <p class="ui big header">{{todo.id }} | {{ todo.title }}</p>
-
-            {% if todo.complete == False %}
-            <span class="ui gray label">Not Complete</span>
-            {% else %}
-            <span class="ui green label">Completed</span>
-            {% endif %}
-
-            <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
-            <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
-        </div>
-        {% endfor %}
+  <div class="ui modal">
+    <div class="header">Header</div>
+    <div class="content">
+      <div id="map"></div>
+      <div id="infowindow-content">
+        <img id="place-icon" src="" height="16" width="16" />
+        <span id="place-name" class="title"></span><br />
+        Place ID <span id="place-id"></span><br />
+        <span id="place-address"></span>
+      </div>
     </div>
-</body>
+  </div>
 
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">Todo Page</h1>
+      </div>
+    </header>
+    <div style="margin-top: 50px" class="ui container">
+      <h1 class="ui center aligned header">Current Todo List</h1>
+
+      <form class="ui form" id="foorm" action="/add" method="post">
+        <div class="field">
+          <label>Todo Title</label>
+          <input
+            id="in"
+            type="text"
+            name="title"
+            placeholder="Enter Todo..."
+          /><br />
+        </div>
+
+        <div class="field" id="place-name">
+          <label>Place Name</label>
+          <input readonly id="in" type="text" name="place-name" /><br />
+        </div>
+        <div class="field" id="place-address">
+          <label>Place Address</label>
+          <input readonly id="in" type="text" name="place-address" /><br />
+        </div>
+
+        <div class="field" id="traffic-data" hidden>
+          <input readonly id="in" type="text" name="traffic-data" /><br />
+        </div>
+        <div id="myDiv"></div>
+
+        <button
+          type="button"
+          class="ui icon button"
+          onclick="$('.ui.modal').modal('show');"
+        >
+          <i class="map icon"></i>
+        </button>
+
+        <button class="ui blue button" type="submit">Add</button>
+      </form>
+
+      <hr />
+
+      {% for todo in todo_list %}
+      <div class="ui segment">
+        <p class="ui big header">
+          {{todo.id }} | {{ todo.title }} | {{todo.place_name}} |
+          {{todo.place_address}}
+        </p>
+
+        <div id="{{todo.id}}" />
+
+        <script>
+          var layout = {
+                        autosize: false,
+                        width: 500,
+                        height: 300,
+                        title: {
+                          text: "Foot Traffic Heatmap",
+                          font: {
+                            family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                            size: 24,
+                          },
+                          xref: "paper",
+                          x: 0.05,
+                        },
+                        xaxis: {
+                          title: {
+                            text: "hour",
+                            font: {
+                              family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                              size: 18,
+                              color: "#7f7f7f",
+                            },
+                          },
+                        },
+                        yaxis: {
+                          title: {
+                            text: "day",
+                            font: {
+                              family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                              size: 18,
+                              color: "#7f7f7f",
+                            },
+                          },
+                        },
+                      };
+
+                      var data = [
+              {
+                z: {{todo.traffic_data}},
+                type: "heatmap",
+                name: "BestTime API day_raw",
+              },
+            ];
+
+                      Plotly.newPlot("{{todo.id}}", data, layout);
+        </script>
+
+        {% if todo.complete == False %}
+        <span class="ui gray label">Not Complete</span>
+        {% else %}
+        <span class="ui green label">Completed</span>
+        {% endif %}
+
+        <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
+        <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaOnDR16ri0o-gF6HiYX5gK_yaO16kCvk&libraries=localContext,places&v=beta&callback=initMap"
+      async
+    ></script>
+  </body>
 </html>

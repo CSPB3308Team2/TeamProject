@@ -28,6 +28,7 @@ class ClickEventHandler {
     this.placesService = new google.maps.places.PlacesService(map);
     this.infowindow = new google.maps.InfoWindow();
     this.infowindowContent = document.getElementById("infowindow-content");
+    this.foorm = document.getElementById("foorm");
     this.infowindow.setContent(this.infowindowContent);
     // Listen for clicks on the map.
     this.map.addListener("click", this.handleClick.bind(this));
@@ -45,7 +46,7 @@ class ClickEventHandler {
       event.stop();
 
       if (event.placeId) {
-        this.calculateAndDisplayRoute(event.placeId);
+        // this.calculateAndDisplayRoute(event.placeId);
         this.getPlaceInformation(event.placeId);
       }
     }
@@ -94,51 +95,23 @@ class ClickEventHandler {
               place.name;
             me.infowindowContent.children["place-id"].textContent =
               place.place_id;
+
             me.infowindowContent.children["place-address"].textContent =
               place.formatted_address;
-            var data = [
+
+            me.foorm.children["place-name"].children["in"].value = place.name;
+            me.foorm.children["place-address"].children["in"].value =
+              place.formatted_address;
+            let data = [
               {
                 z: myJson.analysis.map((x) => x.day_raw),
                 type: "heatmap",
                 name: "BestTime API day_raw",
               },
             ];
-            var layout = {
-              autosize: false,
-              width: 500,
-              height: 300,
-              title: {
-                text: "Foot Traffic Heatmap",
-                font: {
-                  family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                  size: 24,
-                },
-                xref: "paper",
-                x: 0.05,
-              },
-              xaxis: {
-                title: {
-                  text: "hour",
-                  font: {
-                    family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                    size: 18,
-                    color: "#7f7f7f",
-                  },
-                },
-              },
-              yaxis: {
-                title: {
-                  text: "day",
-                  font: {
-                    family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                    size: 18,
-                    color: "#7f7f7f",
-                  },
-                },
-              },
-            };
-            me.infowindow.open(me.map);
-            Plotly.newPlot("myDiv", data, layout);
+            me.foorm.children["traffic-data"].children["in"].value =
+              JSON.stringify(myJson.analysis.map((x) => x.day_raw));
+            $(".ui.modal").modal("hide");
           });
       }
     });
