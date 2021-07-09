@@ -46,13 +46,21 @@
   </div>
 
   <body>
-    <header>
-      <div class="container">
-        <h1 class="logo">Todo Page</h1>
+
+    <div class ="top-container todo">
+      <div>
+        <a href="{{ url_for('todos') }}"><h3 class ="left-button">Todos</h3></a>
       </div>
-    </header>
+      <div>
+        <a href="{{ url_for('home') }}"><h1 class="logo">logo goes here</h1></a>
+      </div>
+      <div>
+        <a href="{{ url_for('about') }}"><h3 class="right-button">About</h3></a>
+      </div>
+    </div>
+
     <div style="margin-top: 50px" class="ui container">
-      <h1 class="ui center aligned header">Current Todo List</h1>
+      <h1 class="ui center aligned header">Current Todo List:</h1>
 
       <form class="ui form" id="foorm" action="/add" method="post">
         <div class="field">
@@ -166,5 +174,11 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaOnDR16ri0o-gF6HiYX5gK_yaO16kCvk&libraries=localContext,places&v=beta&callback=initMap"
       async
     ></script>
+
+    <div class="bot-container">
+      <p class="copyright">© 2021 CSPB 3308 Team 4</p>
+      <a class="btn" href="mailto:dypo7836@colorado.edu">Contact us</a>
+    </div>
+
   </body>
 </html>

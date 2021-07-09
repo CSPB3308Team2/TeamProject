@@ -1,40 +1,101 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #444;
-  }
-  
-  /*
-   * Formatting the header area
-   */
-  
-  header {
-    background-color: #00bfff;
-    height: 35px;
-    width: 100%;
-    opacity: .9;
-    margin-bottom: 10px;
-  }
-  
-  header h1.logo {
-    margin: 0;
-    font-size: 1.7em;
-    color: #fff;
-    text-transform: uppercase;
-    float: left;
-  }
-  
-  header h1.logo:hover {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  /*
-   * Centering the body content
-   */
-  
-  .container {
-    width: 1200px;
-    margin: 0 auto;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+}
+
+/* Styling for everything in the headers. Used flex display for logo and buttons */
+
+    /*Sorry William I wanted a different shade of blue for the banner */
+.top-container {
+  text-align: center;
+  margin-top: 0px;
+  background-color: #548CA8;
+  height: 150px;
+  width: 100%;
+  opacity: .9;
+  display: flex;
+}
+
+    /*This is just a placeholder for the logo */
+.logo {
+  padding-top: 50px;
+  margin: 0;
+  font-size: 1.7em;
+  text-transform: uppercase;
+}
+
+.top-container div {
+  position: relative;
+  flex: 1;
+}
+
+    /* Styling the nav bar links */
+.top-container .left-button {
+  color: white;
+  position: absolute;
+  left: 80%;
+  top: 27%;
+}
+
+.left-button:hover {
+  color: black;
+}
+
+.top-container .right-button {
+  color: white;
+  position: absolute;
+  right: 80%;
+  top: 27%;
+}
+
+.right-button:hover {
+  color: black;
+}
+
+    /* For some reason the base.html content is not obeying css rules properly so I added some quick fixes */
+.todo .left-button {
+  padding-top: 20px;
+}
+
+.todo .right-button {
+  padding-top: 20px;
+}
+
+.todo .logo {
+  color: black;
+  font-size: 2rem;
+}
+
+/* Styling for elements in the middle of the page */
+
+.mid-container {
+  padding-top: 20px;
+  height: 700px;
+  text-align: center;
+}
+
+    /* adjusting picture on home page */
+.map-icon {
+  padding-top: 80px;
+  width: 18%;
+}
+    /* adjusting picture on about page */
+.team-pic {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Styling for elements at the bottom of the page */
+
+.bot-container {
+  margin-top: 30px;
+  text-align: center;
+  height: 120px;
+  background-color: #E6DDC6;
+}
+
+.copyright {
+  padding-top: 40px;
+}

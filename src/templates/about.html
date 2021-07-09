@@ -10,10 +10,32 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
   </head>
   <body>
-    <header>
-      <div class = "container">
-        <h1 class="logo">About Page</h1>
+
+    <div class ="top-container">
+      <div>
+        <a href="{{ url_for('todos') }}"><h3 class ="left-button">Todos</h3></a>
       </div>
-    </header>
+      <div>
+        <a href="{{ url_for('home') }}"><h1 class="logo">logo goes here</h1></a>
+      </div>
+      <div>
+        <a href="{{ url_for('about') }}"><h3 class="right-button">About</h3></a>
+      </div>
+    </div>
+
+    <div class="mid-container">
+      <h1>About the Team:</h1>
+      <img class="team-pic" src="https://blogimage.vantagecircle.com/vcblogimages/2020/08/teamwork-and-team-building.png" alt="teamwork">
+      <div class="team-description">
+        <p>Team Members: Daniel Shackelford, Madeline Odom, Eugene Ei, William Egesdal, Dylan Power</p>
+        <p>We are a group of highly motivated and highly successful software developers whom you should hire right away.</p>
+      </div>
+    </div>
+
+    <div class="bot-container">
+      <p class="copyright">© 2021 CSPB 3308 Team 4</p>
+      <a class="btn" href="mailto:dypo7836@colorado.edu">Contact us</a>
+    </div>
+
   </body>
 </html>
