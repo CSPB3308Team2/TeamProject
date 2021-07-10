@@ -85,3 +85,5 @@ IMPORTANT NOTE: everyone must submit to moodle the link to the repo and their us
 - Trello
 - Clubhouse
 - Gira
+
+python main.py & python test1.py
