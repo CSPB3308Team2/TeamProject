@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Luckiest+Guy&family=Open+Sans:wght@300;700&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: black;
 }
 
 /* Styling for everything in the headers. Used flex display for logo and buttons */
 
-    /*Sorry William I wanted a different shade of blue for the banner */
 .top-container {
   text-align: center;
   margin-top: 0px;
@@ -18,12 +19,24 @@ body {
   display: flex;
 }
 
-    /*This is just a placeholder for the logo */
-.logo {
+h1, h3 {
+  font-weight: 700 !important;
+}
+
+.top-container a {
+  text-decoration: none;
+}
+
+
+    /*Logo formatting*/
+#logo {
   padding-top: 50px;
   margin: 0;
-  font-size: 1.7em;
-  text-transform: uppercase;
+  font-size: 2.5em;
+  font-family: 'Bungee', cursive;;
+  text-decoration: none;
+  text-decoration-line: none;
+  color: white;
 }
 
 .top-container div {
@@ -61,11 +74,6 @@ body {
 
 .todo .right-button {
   padding-top: 20px;
-}
-
-.todo .logo {
-  color: black;
-  font-size: 2rem;
 }
 
 /* Styling for elements in the middle of the page */

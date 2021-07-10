@@ -1,14 +1,25 @@
-nav {
-    border-bottom: 1px solid black;
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Luckiest+Guy&family=Open+Sans:wght@300;700&display=swap');
+.todo h1,h2,h3,h4,h5, body {
+  font-family: 'Open Sans', sans-serif !important;
 }
 
-.menu ul {
-    list-style-type: none;
-    padding-left: 0;
-    
-    font-size: 80%;
-    font-weight: bold;
-    color: #000;
+.todo .left-button {
+  padding-top: 20px;
+}
+
+.todo .right-button {
+  padding-top: 20px;
+}
+
+.top-container {
+  text-align: center;
+  margin-top: 0px;
+  background-color: #548CA8;
+  height: 150px;
+  width: 100%;
+  opacity: .9;
+  display: flex;
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 .menu li {
@@ -20,6 +31,16 @@ nav {
     height: 100%;
   }
 
+  #logo {
+    padding-top: 50px;
+    margin: 0;
+    font-size: 2.8em !important;
+    font-family: 'Bungee', cursive !important;
+    text-decoration: none;
+    text-decoration-line: none;
+    color: white;
+  }
+
   .ui.modal.active {
     height: 70%;
   }
@@ -27,6 +48,13 @@ nav {
   .ui.modal>.content {
     height: 100%;
   }
+
+  h1.ui.center.aligned.header {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 700;
+    padding-top: 50px;
+  }
+
   /* Optional: Makes the sample page fill the window. */
   html,
   body {
