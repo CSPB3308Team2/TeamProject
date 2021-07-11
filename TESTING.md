@@ -1,3 +1,11 @@
+## Project Milestone 3: Testing
+#### Team 2 CSPB 3308 Summer 2021
+#### Team Members: Jia (Eugene) Ei, William Egesdal, Daniel Shackelford, Dylan Power and Madeline Odom
+
+
+
+
+## User Acceptance Testing Test Cases
 ## Test Case 1
 ###### Use case name
  - Verify 10 Todo Items can be added to the list with map information without breaking UI
