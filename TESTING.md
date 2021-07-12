@@ -3,7 +3,30 @@
 #### Team Members: Jia (Eugene) Ei, William Egesdal, Daniel Shackelford, Dylan Power and Madeline Odom
 
 
+## Automated Test Cases
+#### 1. Setup environment
+```
+ $ git clone TeamProject # Cloning project repository
+ $ cd TeamProject # Enter to project directory
+ $ python3 -m venv env # If not created, creating virtualenv named env
+ $ source ./env/bin/activate # Activating virtualenv
+ (my_venv)$ pip3 install -r ./requirements.txt # Installing dependencies
+ (my_venv)$ deactivate # When you want to leave virtual environment
+ ```
+###### 2. In one terminal, run Flask App 
+```
+Navigate into the src directory and type:
+$ export FLASK_APP=main.py
+$ flask run
+```
+###### 3. In another terminal, run test1.py
+```
+Navigate into the src directory and type:
+$ python3 test1.py
+```
 
+###### Expected Output
+- Automated test cases will run 7 tests cases to test the rowid, add, delete, and update features as well as the routes of the flask app including routes to the root, about, and home pages. The expected outcome is 7 passing tests.
 
 ## User Acceptance Testing Test Cases
 ## Test Case 1
