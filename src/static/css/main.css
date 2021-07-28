@@ -80,7 +80,7 @@ h1, h3 {
 
 .mid-container {
   padding-top: 20px;
-  height: 700px;
+  height: 800px;
   text-align: center;
 }
 
@@ -91,8 +91,8 @@ h1, h3 {
 }
     /* adjusting picture on about page */
 .team-pic {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* Styling for elements at the bottom of the page */
