@@ -45,10 +45,9 @@
   </div>
 
   <body>
-
-    <div class ="top-container todo">
+    <div class="top-container todo">
       <div>
-        <a href="{{ url_for('todos') }}"><h3 class ="left-button">Todos</h3></a>
+        <a href="{{ url_for('todos') }}"><h3 class="left-button">Todos</h3></a>
       </div>
       <div>
         <a href="{{ url_for('home') }}"><h1 id="logo">todo loco</h1></a>
@@ -111,49 +110,47 @@
         <div id="{{todo.id}}"></div>
 
         <script>
-          let layout = {
-                            autosize: false,
-                            width: 500,
-                            height: 300,
+
+          Plotly.newPlot("{{todo.id}}", [
+                {
+                  z: {{todo.traffic_data}},
+                  type: "heatmap",
+                  name: "BestTime API day_raw",
+                },
+              ], {
+                          autosize: false,
+                          width: 500,
+                          height: 300,
+                          title: {
+                            text: "Foot Traffic Heatmap",
+                            font: {
+                              family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                              size: 24,
+                            },
+                            xref: "paper",
+                            x: 0.05,
+                          },
+                          xaxis: {
                             title: {
-                              text: "Foot Traffic Heatmap",
+                              text: "hour",
                               font: {
                                 family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                                size: 24,
-                              },
-                              xref: "paper",
-                              x: 0.05,
-                            },
-                            xaxis: {
-                              title: {
-                                text: "hour",
-                                font: {
-                                  family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                                  size: 18,
-                                  color: "#7f7f7f",
-                                },
+                                size: 18,
+                                color: "#7f7f7f",
                               },
                             },
-                            yaxis: {
-                              title: {
-                                text: "day",
-                                font: {
-                                  family: "Helvetica Neue, Helvetica, Arial, sans-serif",
-                                  size: 18,
-                                  color: "#7f7f7f",
-                                },
+                          },
+                          yaxis: {
+                            title: {
+                              text: "day",
+                              font: {
+                                family: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                                size: 18,
+                                color: "#7f7f7f",
                               },
                             },
-                          };
-
-            let data = [
-                  {
-                    z: {{todo.traffic_data}},
-                    type: "heatmap",
-                    name: "BestTime API day_raw",
-                  },
-                ];
-            Plotly.newPlot("{{todo.id}}", data, layout);
+                          },
+                        });
         </script>
 
         {% endif %} {% if todo.complete == False %}
@@ -178,6 +175,5 @@
       <p class="copyright">© 2021 CSPB 3308 Team 2</p>
       <a class="btn" href="mailto:dypo7836@colorado.edu">Contact us</a>
     </div>
-
   </body>
 </html>
