@@ -78,7 +78,8 @@ class ClickEventHandler {
         place.geometry.location
       ) {
         fetch(
-          "http://127.0.0.1:5000//mapclick?address=" +
+          // "http://127.0.0.1:5000//mapclick?address=" +
+          "http://todo-loco.herokuapp.com/mapclick?address=" +
             place.formatted_address +
             "&name=" +
             place.name
