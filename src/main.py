@@ -8,7 +8,8 @@ response = requests.request("GET", url)
 
 app = Flask(__name__, static_folder="static")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://rxduyqdqfwnukp:7bf5f329ded31a6e9849d36add9825c3279e776cafe947f232caf418e18a78a1@ec2-54-158-232-223.compute-1.amazonaws.com:5432/d1ntu45sgeues1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
