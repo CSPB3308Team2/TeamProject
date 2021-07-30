@@ -63,6 +63,7 @@ class ClickEventHandler {
         if (status === "OK") {
           me.directionsRenderer.setDirections(response);
         } else {
+          console.log("status not set to ok");
           window.alert("Directions request failed due to " + status);
         }
       }
@@ -81,7 +82,7 @@ class ClickEventHandler {
         fetch(
           
           //"http://127.0.0.1:5000//mapclick?address=" +
-          "//todo-loco.herokuapp.com:33507//mapclick?address=" +
+          "//todo-loco.herokuapp.com//mapclick?address=" +
             place.formatted_address +
             "&name=" +
             place.name
