@@ -88,9 +88,11 @@ def mapclick():
     print(address)
     print(name)
     url = "https://besttime.app/api/v1/forecasts"
-    f = "pri_c1383a9ff6db4157b3606bca5ca95df7"
+    # f = "pri_c1383a9ff6db4157b3606bca5ca95df7"
+    f = "pri_50721885d4ae435c95f4966c33c0e141"
     params = {
-        'api_key_private': "pri_c1383a9ff6db4157b3606bca5ca95df7",
+        # 'api_key_private': "pri_c1383a9ff6db4157b3606bca5ca95df7",
+        'api_key_private': 'pri_50721885d4ae435c95f4966c33c0e141',
         'venue_name': name,
         'venue_address': address
     }
