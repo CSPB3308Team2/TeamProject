@@ -85,6 +85,7 @@ class ClickEventHandler {
             place.name
         )
           .then((response) => {
+            print("the response is: ")
             return response.json();
           })
           .then((myJson) => {
