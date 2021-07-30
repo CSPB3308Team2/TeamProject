@@ -87,7 +87,7 @@ def mapclick():
     name = request.args.get('name')
     print(address)
     print(name)
-    url = "https://besttime.app/api/v1/forecasts"
+    url = "https://besttime.app//api//v1//forecasts"
     # f = "pri_c1383a9ff6db4157b3606bca5ca95df7"
     f = "pri_50721885d4ae435c95f4966c33c0e141"
     params = {
