@@ -79,7 +79,7 @@ class ClickEventHandler {
       ) {
         fetch(
           //"http://127.0.0.1:5000//mapclick?address=" +
-          "http://54.175.230.252:33507//mapclick?address=" +
+          "http://https://todo-loco.herokuapp.com//todos//mapclick?address=" +
             place.formatted_address +
             "&name=" +
             place.name
