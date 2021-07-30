@@ -78,18 +78,17 @@ class ClickEventHandler {
         place.geometry &&
         place.geometry.location
       ) {
-        console.log("starting fetch");
+        
         fetch(
-          
           //"http://127.0.0.1:5000//mapclick?address=" +
           "//todo-loco.herokuapp.com//todos//mapclick?address=" +
             place.formatted_address +
             "&name=" +
             place.name
         )
-        
           .then((response) => {
-            
+            console.log(response.text());
+            console.log(response.json());
             return response.json();
           })
           .then((myJson) => {

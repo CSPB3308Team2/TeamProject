@@ -2,13 +2,13 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import requests
 
-url = "https://besttime.app/api/v1/keys/pri_c1383a9ff6db4157b3606bca5ca95df7"
+url = "https://besttime.app/api/v1/keys/pri_50721885d4ae435c95f4966c33c0e141"
 
 response = requests.request("GET", url)
 
 app = Flask(__name__, static_folder="static")
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rxduyqdqfwnukp:7bf5f329ded31a6e9849d36add9825c3279e776cafe947f232caf418e18a78a1@ec2-54-158-232-223.compute-1.amazonaws.com:5432/d1ntu45sgeues1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -104,4 +104,4 @@ def mapclick():
 db.create_all()
 
 if __name__ == '__main__':
-    app.run(debug=True, port=33507)
+    app.run(debug=True)
