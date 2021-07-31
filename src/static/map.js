@@ -87,8 +87,6 @@ class ClickEventHandler {
             place.name
         )
           .then((response) => {
-            console.log(response.text());
-            console.log(response.json());
             return response.json();
           })
           .then((myJson) => {
