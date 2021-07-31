@@ -8,8 +8,7 @@ response = requests.request("GET", url)
 
 app = Flask(__name__, static_folder="static")
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rxduyqdqfwnukp:7bf5f329ded31a6e9849d36add9825c3279e776cafe947f232caf418e18a78a1@ec2-54-158-232-223.compute-1.amazonaws.com:5432/d1ntu45sgeues1'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -87,12 +86,11 @@ def mapclick():
     name = request.args.get('name')
     print(address)
     print(name)
-    url = "https://besttime.app//api//v1//forecasts"
+    url = "https://besttime.app/api/v1/forecasts"
     # f = "pri_c1383a9ff6db4157b3606bca5ca95df7"
     f = "pri_50721885d4ae435c95f4966c33c0e141"
     params = {
-        # 'api_key_private': "pri_c1383a9ff6db4157b3606bca5ca95df7",
-        'api_key_private': 'pri_50721885d4ae435c95f4966c33c0e141',
+        'api_key_private': "pri_50721885d4ae435c95f4966c33c0e141",
         'venue_name': name,
         'venue_address': address
     }
